@@ -11,7 +11,7 @@ const Footer = () => {
       </div>
       <div className="footer_right">
         <Typography className='footer_copyright'>
-          Edited by Ilyas
+          Edited by Fairuz
         </Typography>
       </div>
     </div>

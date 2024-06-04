@@ -14,10 +14,7 @@
     color:darkslategray;
 }
 .Resume_timeline .timeline_content .timeline_description {
-    color: gray;
-    font-size: small;
-    margin-top: 6px;
-}
+    color: gray;npm
 
 /*skills*/
 .skill{
@@ -44,5 +41,5 @@
     color: black !important ;
     border-color: var(--main-color) !important ;
     padding: 2px !important ;
-    margin-right:5px !important ;
+    margin-right:5px !important ;}
 }

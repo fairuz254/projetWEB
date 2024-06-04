@@ -1,5 +1,5 @@
-:root{
-    --main-color:#79D1CE;
+root{
+    --main-color:#ff90e5;
 }
 
 /* margin and padding*/
@@ -62,4 +62,10 @@
 }
 .graybg{
     background-color: #fafafa0c;
+}
+.centered {
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    height: 5vh; /* Hauteur de la fenêtre visible */
 }
