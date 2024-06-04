@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Formulaire de CV</title>
+    <style>
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="elementscv">
+        <div class="infos_personelles">
+            <form id="cvForm">
+                <fieldset>
+                    <h2 style="color: lightblue;">Section 1 :</h2></br>
+                    <label style="color: lightblue;">Titre de la section 1 :</label></br>
+                    <input type="text" id="titre_section1"></br></br>
+                    <label style="color: lightblue;">Nom <span style="color: red;">*</span> :</label></br>
+                    <input type="text" id="nom">
+                    <span class="error" id="errorNom">Le nom est obligatoire et doit être en majuscule.</span>
+                    </br></br>
+                    <label style="color: lightblue;">Prénom <span style="color: red;">*</span> :</label></br>
+                    <input type="text" id="prenom">
+                    <span class="error" id="errorPrenom">Le prénom est obligatoire et doit commencer par une majuscule.</span>
+                    <br><br>
+                    <label style="color: lightblue;">Titre :</label></br>
+                    <input type="text" id="titre">
+                    <br><br>
+                    <label style="color: lightblue;">Âge <span style="color: red;">*</span> :</label></br>
+                    <select id="age">
+                        <option value="">Sélectionner</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                    </select>
+                    <span class="error" id="errorAge">L'âge est obligatoire.</span>
+                    <br><br>
+                    <label style="color: lightblue;">Mail <span style="color: red;">*</span> :</label></br>
+                    <input type="email" id="mail">
+                    <span class="error" id="errorMail">L'e-mail est obligatoire et doit respecter le format.</span>
+                    <br><br>
+                    <label style="color: lightblue;">Adresse :</label></br>
+                    <input type="text" id="adresse">
+                    <br><br>
+                    <input type="submit" value="Envoyer">
+                </fieldset>
+            </form>
+        </div>
+        <br>
+        
+        <div class="cvBody">
+            <fieldset>
+                <h2 style="color: lightblue;">Section 2 :</h2></br>
+                <label style="color: lightblue;">Titre de la section 2 :</label></br>
+                <input type="text" id="titre_section2"></br></br>
+                <div id="obj">
+                    <h2 style="color: lightblue;">Profil :</h2></br>
+                    <form>
+                        <label style="color: lightblue;"> Objectif professionel :</label></br>
+                        <input type="text" id="obj_pro">
+                        <input type="button" value="Ajouter" onclick="add_element('obj','obj_pro')">
+                    </div>
+                    <br><br>
+                    <div id="comptech">
+                        <label style="color: lightblue;">Compétences techniques :</label></br>
+                        <input type="checkbox" id="comp_tech_java" value="JAVA"> JAVA<br>
+                        <input type="checkbox" id="comp_tech_sql" value="SQL"> SQL<br>
+                        <input type="checkbox" id="comp_tech_cloud" value="CLOUD"> CLOUD<br>
+                        <input type="checkbox" id="comp_tech_linux" value="LINUX"> LINUX<br>
+                    </div>
+                    <br><br>
+                    <div id="compling">
+                        <label style="color: lightblue;">Compétences linguistiques :</label></br>
+                        <input type="text" id="comp_ling">
+                        <input type="button" value="Ajouter" onclick="add_element('compling','comp_ling')">
+                    </div>
+                    <br><br>
+                    <div id="autres">
+                        <label style="color: lightblue;">Autres:</label></br>
+                        <input type="text" id="_autres">
+                        <input type="button" value="Ajouter" onclick="add_element('autres','_autres')">
+                    </div>
+                    <br><br>
+                    <input type="submit" value="Envoyer">
+            </fieldset>
+            </form>
+        </div>
+        <br>
+
+        <div class="Etudes">
+            <fieldset>
+                <div id="etudes">
+                    <h2 style="color: lightblue;">Section 3 :</h2></br>
+                    <label style="color: lightblue;">Titre de la section 3 :</label></br>
+                    <input type="text" id="titre_section3"></br></br>
+                    <form>
+                        <label style="color: lightblue;">Nom de l'institution :</label></br>
+                        <input type="text" id="nominst">
+                        <input type="button" value="Ajouter" onclick="add_element('etudes','nominst')">
+                    </div>
+                    <br><br>
+                    <div id="depart">
+                        <label style="color: lightblue;"> De :</label></br>
+                        <input type="number" value="2020" id="adepart">
+                        <input type="button" value="Ajouter" onclick="add_element('depart','adepart')">
+                    </div>
+                    <br><br>
+                    <div id="fin">
+                        <label style="color: lightblue;"> A :</label></br>
+                        <input type="number" value="2020" id="afin">
+                        <input type="button" value="Ajouter" onclick="add_element('fin','afin')">
+                    </div>
+                    <div id='desc'>
+                        <br><br>
+                        <label style="color: lightblue;">Description</label></br>
+                        <input type="text" id="descri">
+                        <input type="button" value="Ajouter" onclick="add_element('desc','descri')">
+                    </div>
+                    <br><br>
+                    <input type="submit" value="Envoyer">
+                </div>
+            </div>
+            </form>
+        </div>
+    </fieldset>
+    </div>
+    <script>
+        var _nom = document.getElementById("nom");
+        var _prenom = document.getElementById("prenom");
+        var _age = document.getElementById("age");
+        var _mail = document.getElementById("mail");
+        var _adresse = document.getElementById("adresse");
+        var _titre = document.getElementById("titre");
+        var _obj_pro = document.getElementById("obj_pro");
+        var _titresection1 = document.getElementById("titre_section1");
+        var _titresection2 = document.getElementById("titre_section2");
+        var _titresection3 = document.getElementById("titre_section3");
+
+        _nom.pattern = "[A-Z]{1,}";
+        _nom.title = "Le nom doit être en majuscule. Ne pas saisir de caractères spéciaux:(&, @, etc.)";
+
+        _prenom.pattern = "[A-Z]([a-z]{1,})";
+        _prenom.title = "Le prénom doit commencer par une majuscule. Ne pas saisir de caractères spéciaux:(&, @, etc.)";
+
+        _mail.pattern = "[a-zA-Z0-9._]+@[a-zA-Z0-9._]+\.(com|fr)$";
+        _mail.title = "L'e-mail doit respecter le format suivant: caractères + « @ » + caractères + « .com » | « .fr »";
+
+        function validateField(field, errorField) {
+            if (!field.value) {
+                errorField.style.display = "inline";
+                return false;
+            } else {
+                errorField.style.display = "none";
+                return true;
+            }
+        }
+
+        _nom.addEventListener("input", function() {
+            validateField(_nom, document.getElementById("errorNom"));
+        });
+
+        _prenom.addEventListener("input", function() {
+            validateField(_prenom, document.getElementById("errorPrenom"));
+        });
+
+        _age.addEventListener("input", function() {
+            validateField(_age, document.getElementById("errorAge"));
+        });
+
+        _mail.addEventListener("input", function() {
+            validateField(_mail, document.getElementById("errorMail"));
+        });
+
+        document.getElementById("cvForm").addEventListener("submit", function(event) {
+            var isValid = true;
+            isValid = validateField(_nom, document.getElementById("errorNom")) && isValid;
+            isValid = validateField(_prenom, document.getElementById("errorPrenom")) && isValid;
+            isValid = validateField(_age, document.getElementById("errorAge")) && isValid;
+            isValid = validateField(_mail, document.getElementById("errorMail")) && isValid;
+
+            if (!isValid) {
+                event.preventDefault(); // Empêche l'envoi du formulaire si des champs sont invalides
+            }
+        });
+
+        function add_element(section, inputId) {
+            var input = document.getElementById(inputId);
+            if (input.value.trim() !== "") {
+                var newElement = document.createElement("p");
+                newElement.textContent = input.value;
+                document.getElementById(section).appendChild(newElement);
+                input.value = "";
+            }5
+        }
+    </script>
+</body>
+</html>
